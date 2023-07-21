@@ -15,7 +15,7 @@ public class Main {
         if (inputStream == null) {
             throw new IllegalArgumentException("file not found! " + fileName);
         }
-            return inputStream;
+        return inputStream;
 
 
     }
@@ -41,9 +41,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
-
-
 
 
         InputStream is = getFileFromResourceAsStream(getFileName());
