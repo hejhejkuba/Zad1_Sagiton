@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 
 public class Main {
-    public InputStream getFileFromResourceAsStream(String fileName) {
+    static InputStream getFileFromResourceAsStream(String fileName) {
 
-        ClassLoader classLoader = getClass().getClassLoader();
+        ClassLoader classLoader = Main.class.getClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream(fileName);
         if (inputStream == null) {
             throw new IllegalArgumentException("file not found! " + fileName);
@@ -20,7 +20,7 @@ public class Main {
 
     }
 
-    public void printInputStream(InputStream is) {
+    static void printInputStream(InputStream is) {
         try {
             InputStreamReader streamReader = new InputStreamReader(is, StandardCharsets.UTF_8);
             BufferedReader reader = new BufferedReader(streamReader);
@@ -33,7 +33,7 @@ public class Main {
         }
     }
 
-    public String getFileName() {
+    static private String getFileName() {
         System.out.println("Wpisz nazwe pliku w konsoli");
         Scanner scanner = new Scanner(System.in);
         String filename = scanner.nextLine();
@@ -43,13 +43,13 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Main main = new Main();
 
 
-        InputStream is = main.getFileFromResourceAsStream(main.getFileName());
+
+        InputStream is = getFileFromResourceAsStream(getFileName());
 
 
-        main.printInputStream(is);
+        printInputStream(is);
 
     }
 
