@@ -10,31 +10,22 @@ import java.io.InputStream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
-    Main main;
-    @BeforeEach
-    void setUp()
-    {
-        main = new Main();
-    }
     @Test
-    void FileNotExist()
-    {
-
+    void fileNotExist() {
         assertThrows(IllegalArgumentException.class,
                 ()->{
-                    main.getFileFromResourceAsStream("file4.txt");
+                    FileIn.getFileFromResourceAsStream("file4.txt");
                 });
+    }
 
-    }
     @Test
-    void FileExist()
-    {
-        assertNotNull(main.getFileFromResourceAsStream("file.txt"));
+    void fileExist() {
+        assertNotNull(FileIn.getFileFromResourceAsStream("file.txt"));
     }
+
     @Test
-    void PrintNotError()
-    {
-        InputStream is = main.getFileFromResourceAsStream("file.txt");
-        assertAll(() -> main.printInputStream(is));
+    void printNotError() {
+        InputStream is = FileIn.getFileFromResourceAsStream("file.txt");
+        assertAll(() -> FileOut.printInputStream(is));
     }
 }
