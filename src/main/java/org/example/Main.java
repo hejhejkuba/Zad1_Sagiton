@@ -1,10 +1,6 @@
 package org.example;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
 
 
 public class Main {
@@ -23,7 +19,7 @@ public class Main {
 
     public static void main(String[] args) {
     InputStream is = FileIn.getFileFromResourceAsStream(FileIn.getFileName());
-    FileOut.printInputStream(is);
+    HandleOption.printInputStream(is, FileToFile.class);
     }
 
 }
